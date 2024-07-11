@@ -26,8 +26,8 @@ This repository contains two tasks:
 1. **UI Testing**
 2. **API Testing**
 
-## UI Testing
-# Follow these steps to run the UI tests:
+# UI Testing
+## Follow these steps to run the UI tests:
 
 1. **Open Command Prompt (CMD).**
 2. **Navigate to the UI tests directory:** 
@@ -50,9 +50,8 @@ npx nightwatch -e chrome
 
 ```siemens-SDET/UI_tests/tests_output/nightwatch-html-report/index.html```
 
-### API Testing
-
-Follow these steps to run the API tests:
+# API Testing
+## Follow these steps to run the UI tests:
 
 1. **Open PowerShell.**
 2. **Navigate to the `mock-user-auth` directory:**
