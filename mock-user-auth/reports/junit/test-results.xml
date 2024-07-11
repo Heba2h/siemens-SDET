@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.308" tests="19" failures="1">
+  <testsuite name="Root Suite" timestamp="2024-07-11T20:00:07" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="API Routes" timestamp="2024-07-11T20:00:07" tests="11" file="D:\mock-user-auth\test\auth.spec.js" time="0.247" failures="1">
+    <testcase name="API Routes should authenticate a user" time="0.012" classname="should authenticate a user">
+    </testcase>
+    <testcase name="API Routes should fail to authenticate a user with incorrect credentials" time="0.007" classname="should fail to authenticate a user with incorrect credentials">
+    </testcase>
+    <testcase name="API Routes should register a new user" time="0.008" classname="should register a new user">
+    </testcase>
+    <testcase name="API Routes should fail to register an existing user" time="0.009" classname="should fail to register an existing user">
+    </testcase>
+    <testcase name="API Routes should get user data" time="0.019" classname="should get user data">
+    </testcase>
+    <testcase name="API Routes should fail to get user data with invalid token" time="0.006" classname="should fail to get user data with invalid token">
+    </testcase>
+    <testcase name="API Routes should update user data" time="0.016" classname="should update user data">
+    </testcase>
+    <testcase name="API Routes should delete a user" time="0.037" classname="should delete a user">
+      <failure message="expected 500 to equal 200" type="AssertionError"><![CDATA[AssertionError: expected 500 to equal 200
+    at call (test\/auth.spec.js:118:32)
+    at tryCatch (test\/auth.spec.js:2:1)
+    at Generator._invoke (test\/auth.spec.js:2:1)
+    at Generator.next (test\/auth.spec.js:2:1)
+    at asyncGeneratorStep (test\/auth.spec.js:2:1)
+    at _next (test\/auth.spec.js:2:1)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+      + expected - actual
+
+      -500
+      +200
+      ]]></failure>
+    </testcase>
+    <testcase name="API Routes should fail to delete a user with invalid token" time="0.008" classname="should fail to delete a user with invalid token">
+    </testcase>
+    <testcase name="API Routes should delete all users with correct admin key" time="0.009" classname="should delete all users with correct admin key">
+    </testcase>
+    <testcase name="API Routes should fail to delete all users with incorrect admin key" time="0.008" classname="should fail to delete all users with incorrect admin key">
+    </testcase>
+  </testsuite>
+  <testsuite name="Cors middleware" timestamp="2024-07-11T20:00:07" tests="2" file="D:\mock-user-auth\test\cors.spec.js" time="0.029" failures="0">
+    <testcase name="Cors middleware It should return 200" time="0.002" classname="It should return 200">
+    </testcase>
+    <testcase name="Cors middleware It should pass request" time="0.003" classname="It should pass request">
+    </testcase>
+  </testsuite>
+  <testsuite name="WWW server" timestamp="2024-07-11T20:00:07" tests="0" file="D:\mock-user-auth\test\www.spec.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="NormalizePort Function" timestamp="2024-07-11T20:00:07" tests="4" file="D:\mock-user-auth\test\www.spec.js" time="0.004" failures="0">
+    <testcase name="WWW server NormalizePort Function It should return 3001 port" time="0.001" classname="It should return 3001 port">
+    </testcase>
+    <testcase name="WWW server NormalizePort Function It should return false" time="0.000" classname="It should return false">
+    </testcase>
+    <testcase name="WWW server NormalizePort Function It should return number" time="0.000" classname="It should return number">
+    </testcase>
+    <testcase name="WWW server NormalizePort Function It should return isNaN" time="0.000" classname="It should return isNaN">
+    </testcase>
+  </testsuite>
+  <testsuite name="OnError Function" timestamp="2024-07-11T20:00:07" tests="2" file="D:\mock-user-auth\test\www.spec.js" time="0.009" failures="0">
+    <testcase name="WWW server OnError Function It should throw exception" time="0.001" classname="It should throw exception">
+    </testcase>
+    <testcase name="WWW server OnError Function It should catch default error" time="0.000" classname="It should catch default error">
+    </testcase>
+  </testsuite>
+</testsuites>
