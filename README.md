@@ -56,9 +56,10 @@ npx nightwatch -e chrome
 1. **Open PowerShell.**
 2. **Navigate to the `mock-user-auth` directory:**
 
-   ```sh
+```sh
    cd siemens-SDET/mock-user-auth/
 ```
+
 3. **Use Node.js version 20:**
 ```sh
 nvm use 11
