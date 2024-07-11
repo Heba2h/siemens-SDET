@@ -1,0 +1,1 @@
+{"modules":{"get_url":{"modulePath":"D:\\nightWatch\\tests\\get_url.js","status":"skip"},"searchTests":{"modulePath":"D:\\nightWatch\\tests\\searchTests.js","status":"fail"},"contactUsTests":{"modulePath":"D:\\nightWatch\\tests\\contactUsTests.js","status":"pass"}}}

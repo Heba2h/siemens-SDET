@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="5">
+
+  <testsuite name="contact_us"
+    errors="0" failures="0" hostname="" id="" package="contact_us" skipped="0"
+    tests="5" time="79.47" timestamp="">
+  
+    <testcase name="Contact Us Form - Valid Submission" classname="contact_us" time="15.71" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Contact Us Form - Missing Subject Heading" classname="contact_us" time="6.028" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Contact Us Form - Missing Email Address" classname="contact_us" time="5.869" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Contact Us Form - Missing Message" classname="contact_us" time="5.851" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Contact Us Form - File Upload" classname="contact_us" time="6.277" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

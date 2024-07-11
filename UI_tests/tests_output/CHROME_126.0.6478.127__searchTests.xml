@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="searchTests"
+    errors="0" failures="1" hostname="" id="" package="searchTests" skipped="0"
+    tests="1" time="63.95" timestamp="">
+  
+    <testcase name="Search for &#34;dress&#34; and verify results" classname="searchTests" time="31.98" assertions="4">
+
+    
+
+    
+
+      <failure message="Testing if element &lt;Element [name=@productList]&gt; contains text &#39;dress&#39; in 5000ms - expected &#34;contains text &#39;dress&#39;&#34; but got: &#34;does not contain &#39;dress&#39;&#34; (5240ms)">    at Search for &#34;dress&#34; and verify results (D:\nightWatch\tests\searchTests.js:14:15)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
