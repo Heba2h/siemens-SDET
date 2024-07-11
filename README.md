@@ -68,7 +68,11 @@ nvm use 11
 ```sh
 npm install
 ```
-5. **Run the test cases in Windows PowerShell:**
+5.0 **Open another Windows PowerShell to run the server using:**
+```sh
+npm run dev
+```
+5.1 **Run the test cases in Windows PowerShell:**
 ```sh
 $env:NODE_ENV="test"; .\node_modules\.bin\mocha --require @babel/register --require babel-polyfill --reporter mocha-multi-reporters --reporter-options configFile=reporter-config.json .\test\**\*.spec.js
 ```
