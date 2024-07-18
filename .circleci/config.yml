@@ -13,6 +13,7 @@ jobs:
       - checkout
       - run:
           name: Install NVM
+          shell: powershell.exe
           command: |
             Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
             Start-Process .\nvm-setup.exe -Wait
@@ -38,6 +39,7 @@ jobs:
       - checkout
       - run:
           name: Install NVM
+          shell: powershell.exe
           command: |
             Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
             Start-Process .\nvm-setup.exe -Wait
@@ -56,6 +58,7 @@ jobs:
             npm run dev
       - run:
           name: Run API Tests
+          shell: powershell.exe
           command: |
             cd siemens-SDET\mock-user-auth
             $env:NODE_ENV="test"
