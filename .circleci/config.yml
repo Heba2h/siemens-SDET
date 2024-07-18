@@ -2,8 +2,10 @@ version: 2.1
 
 jobs:
   run-ui-tests:
-    machine:
-      image: windows-server-2019-vs2019:stable
+
+    runs-on: windows-latest
+    permissions: write-all
+    
     steps:
       - checkout
       - run:
