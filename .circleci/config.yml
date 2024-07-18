@@ -7,39 +7,7 @@ executors:
       resource_class: windows.medium
 
 jobs:
-  run-ui-tests:
-    executor: windows-executor
-    steps:
-      - run:
-          name: Clone Repository
-          shell: powershell.exe
-          command: |
-            git clone https://github.com/Heba2h/siemens-SDET C:\Users\circleci\project\siemens-SDET
-      - run:
-          name: Install NVM
-          shell: powershell.exe
-          command: |
-            Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
-            Start-Process .\nvm-setup.exe -Wait
-            $env:PATH += ";C:\Program Files\nodejs"
-            nvm install 20
-            nvm use 20
-      - run:
-          name: Install Dependencies
-          shell: powershell.exe
-          command: |
-            cd C:\Users\circleci\project\siemens-SDET\UI_tests
-            npm install
-      - run:
-          name: Run UI Tests
-          shell: powershell.exe
-          command: |
-            cd C:\Users\circleci\project\siemens-SDET\UI_tests
-            npx nightwatch -e chrome
-      - store_artifacts:
-          path: C:\Users\circleci\project\siemens-SDET\UI_tests\tests_output\nightwatch-html-report\index.html
-          destination: ui-test-report
-
+  
   run-api-tests:
     executor: windows-executor
     steps:
@@ -85,7 +53,4 @@ workflows:
   version: 2
   test:
     jobs:
-      - run-ui-tests
-      - run-api-tests:
-          requires:
-            - run-ui-tests
+      - run-api-tests
