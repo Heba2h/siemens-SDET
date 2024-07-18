@@ -21,12 +21,16 @@ jobs:
             nvm use 20
       - run:
           name: Install Dependencies
+          shell: powershell.exe
           command: |
+            ls
             cd siemens-SDET\UI_tests
             npm install
       - run:
           name: Run UI Tests
+          shell: powershell.exe
           command: |
+            ls
             cd siemens-SDET\UI_tests
             npx nightwatch -e chrome
       - store_artifacts:
