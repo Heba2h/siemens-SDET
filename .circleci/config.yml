@@ -1,18 +1,20 @@
 version: 2.1
 
+executors:
+  windows-executor:
+    docker:
+      - image: circleci/windows:2022-core
+
 jobs:
   run-ui-tests:
-
-    runs-on: windows-latest
-    permissions: write-all
-    
+    executor: windows-executor
     steps:
       - checkout
       - run:
           name: Install NVM
           command: |
-            Invoke-WebRequest -Uri https://raw.githubusercontent.com/coreybutler/nvm-windows/v1.1.7/install.cmd -OutFile install-nvm.cmd
-            ./install-nvm.cmd
+            Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
+            Start-Process .\nvm-setup.exe -Wait
             nvm install 20
             nvm use 20
       - run:
@@ -30,15 +32,14 @@ jobs:
           destination: ui-test-report
 
   run-api-tests:
-    machine:
-      image: windows-server-2019-vs2019:stable
+    executor: windows-executor
     steps:
       - checkout
       - run:
           name: Install NVM
           command: |
-            Invoke-WebRequest -Uri https://raw.githubusercontent.com/coreybutler/nvm-windows/v1.1.7/install.cmd -OutFile install-nvm.cmd
-            ./install-nvm.cmd
+            Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
+            Start-Process .\nvm-setup.exe -Wait
             nvm install 11
             nvm use 11
       - run:
@@ -48,8 +49,10 @@ jobs:
             npm install
       - run:
           name: Start Server
+          background: true
           command: |
-            Start-Process cmd -ArgumentList '/c npm run dev' -NoNewWindow
+            cd siemens-SDET\mock-user-auth
+            npm run dev
       - run:
           name: Run API Tests
           command: |
