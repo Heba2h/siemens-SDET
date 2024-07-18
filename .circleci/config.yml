@@ -1,31 +1,71 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/executor-intro/ & https://circleci.com/docs/configuration-reference/#executor-job
+  run-ui-tests:
     docker:
-      # Specify the version you desire here
-      # See: https://circleci.com/developer/images/image/cimg/base
-      - image: cimg/base:current
-
-    # Add steps to the job
-    # See: https://circleci.com/docs/jobs-steps/#steps-overview & https://circleci.com/docs/configuration-reference/#steps
+      - image: circleci/node:20
     steps:
-      # Checkout the code as the first step.
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: Install NVM
+          command: |
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install 20
+            nvm use 20
+      - run:
+          name: Install Dependencies
+          command: |
+            cd siemens-SDET/UI_tests/
+            npm install
+      - run:
+          name: Run UI Tests
+          command: |
+            cd siemens-SDET/UI_tests/
+            npx nightwatch -e chrome
+      - store_artifacts:
+          path: siemens-SDET/UI_tests/tests_output/nightwatch-html-report/index.html
+          destination: ui-test-report
 
-# Orchestrate jobs using workflows
-# See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
+  run-api-tests:
+    docker:
+      - image: circleci/node:11
+    steps:
+      - checkout
+      - run:
+          name: Install NVM
+          command: |
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install 11
+            nvm use 11
+      - run:
+          name: Install Dependencies
+          command: |
+            cd siemens-SDET/mock-user-auth/
+            npm install
+      - run:
+          name: Start Server
+          command: |
+            cd siemens-SDET/mock-user-auth/
+            npm run dev &
+      - run:
+          name: Run API Tests
+          command: |
+            cd siemens-SDET/mock-user-auth/
+            $env:NODE_ENV="test"
+            ./node_modules/.bin/mocha --require @babel/register --require babel-polyfill --reporter mocha-multi-reporters --reporter-options configFile=reporter-config.json ./test/**/*.spec.js
+      - store_artifacts:
+          path: siemens-SDET/mock-user-auth/reports/mochawesome.html
+          destination: api-test-report
+
 workflows:
-  say-hello-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  version: 2
+  test:
     jobs:
-      - say-hello
+      - run-ui-tests
+      - run-api-tests:
+          requires:
+            - run-ui-tests
