@@ -32,7 +32,7 @@ jobs:
           command: |
             ls
             cd UI_tests
-            npx nightwatch -e chrome
+            npx nightwatch -e edge
 
 
   run-api-tests:
