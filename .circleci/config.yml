@@ -13,18 +13,22 @@ jobs:
       - checkout
       - run:
           name: Install NVM
+          shell: powershell.exe
           command: |
             Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
             Start-Process .\nvm-setup.exe -Wait
+            $env:PATH += ";C:\Program Files\nodejs"
             nvm install 20
             nvm use 20
       - run:
           name: Install Dependencies
+          shell: powershell.exe
           command: |
             cd siemens-SDET\UI_tests
             npm install
       - run:
           name: Run UI Tests
+          shell: powershell.exe
           command: |
             cd siemens-SDET\UI_tests
             npx nightwatch -e chrome
@@ -38,24 +42,29 @@ jobs:
       - checkout
       - run:
           name: Install NVM
+          shell: powershell.exe
           command: |
             Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
             Start-Process .\nvm-setup.exe -Wait
+            $env:PATH += ";C:\Program Files\nodejs"
             nvm install 11
             nvm use 11
       - run:
           name: Install Dependencies
+          shell: powershell.exe
           command: |
             cd siemens-SDET\mock-user-auth
             npm install
       - run:
           name: Start Server
+          shell: powershell.exe
           background: true
           command: |
             cd siemens-SDET\mock-user-auth
             npm run dev
       - run:
           name: Run API Tests
+          shell: powershell.exe
           command: |
             cd siemens-SDET\mock-user-auth
             $env:NODE_ENV="test"
