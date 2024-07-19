@@ -50,10 +50,6 @@ jobs:
           command: |
             Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
             Start-Process .\nvm-setup.exe -Wait
-      - run:
-          name: Change version
-          shell: powershell.exe
-          command:
             nvm install 11.15.0
             nvm use 11.15.0
       - run:
