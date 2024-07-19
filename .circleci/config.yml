@@ -54,8 +54,8 @@ jobs:
           name: Change version
           shell: powershell.exe
           command:
-            nvm install 11
-            nvm use 11
+            nvm install 11.15.0
+            nvm use 11.15.0
       - run:
           name: Install Dependencies
           shell: powershell.exe
