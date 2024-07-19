@@ -79,7 +79,7 @@ jobs:
             .\node_modules\.bin\mocha --require @babel/register --require babel-polyfill --reporter mocha-multi-reporters --reporter-options configFile=reporter-config.json .\test\**\*.spec.js
 
       - store_artifacts:
-          path: C:\Users\circleci\project\mock-user-auth\reports\mochawesome.html
+          path: C:\Users\circleci\project\mock-user-auth\reports\*.html
           destination: api-test-report
           when: always 
 
