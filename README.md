@@ -1,5 +1,7 @@
 # Siemens SDET Technical Task
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Heba2h/siemens-SDET/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Heba2h/siemens-SDET/tree/main)
+
 ## Getting Started
 
 First, clone this repository:
