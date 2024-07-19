@@ -67,6 +67,7 @@ nvm use 11
 4. **Install the required packages:**
 ```sh
 npm install
+npm install mocha-multi-reporters
 ```
 5.0 **Open another Windows PowerShell to run the server using:**
 ```sh
