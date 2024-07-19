@@ -50,6 +50,10 @@ jobs:
           command: |
             Invoke-WebRequest -Uri https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.exe -OutFile nvm-setup.exe
             Start-Process .\nvm-setup.exe -Wait
+      - run:
+          name: Change version
+          shell: powershell.exe
+          command:
             nvm install 11
             nvm use 11
       - run:
@@ -57,7 +61,7 @@ jobs:
           shell: powershell.exe
           command: |
             cd mock-user-auth
-            npm install --force
+            npm install
       - run:
           name: Start Server
           background: true
