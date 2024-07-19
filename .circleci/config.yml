@@ -42,6 +42,7 @@ jobs:
       - store_artifacts:
           path: C:\Users\circleci\project\UI_tests\tests_output\nightwatch-html-report\index.html
           destination: ui-test-report
+          when: always 
 
 
   run-api-tests:
@@ -80,6 +81,7 @@ jobs:
       - store_artifacts:
           path: C:\Users\circleci\project\mock-user-auth\reports\mochawesome.html
           destination: api-test-report
+          when: always 
 
 workflows:
   version: 2
