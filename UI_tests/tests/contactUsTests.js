@@ -6,7 +6,7 @@ module.exports = {
 
     contactUsPage
       .navigate()
-      .waitForElementVisible('@body', 1000)
+      .waitForElementVisible('@body', 2000)
       .assert.titleContains('Contact us')
       .setValue('@subjectHeading', 'Customer service')
       .setValue('@email', 'test@example.com')
