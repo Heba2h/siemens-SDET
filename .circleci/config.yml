@@ -87,7 +87,7 @@ jobs:
           when: always
 
       - store_artifacts:
-          path: C:\Users\circleci\project\mock-user-auth\reports\mochawesome.html
+          path: C:\Users\circleci\project\mock-user-auth\reports
           destination: api-test-report
           when: always 
 
