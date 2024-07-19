@@ -57,7 +57,7 @@ jobs:
           shell: powershell.exe
           command: |
             cd mock-user-auth
-            npm install
+            npm install --force
       - run:
           name: Start Server
           background: true
