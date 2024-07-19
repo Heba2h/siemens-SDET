@@ -81,7 +81,7 @@ jobs:
       - run:
           name: LS
           shell: powershell.exe
-          command: 
+          command: |
             cd  C:\Users\circleci\project\mock-user-auth\reports
             ls 
           when: always
